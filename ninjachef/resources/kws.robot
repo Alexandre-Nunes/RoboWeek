@@ -36,3 +36,20 @@ Quando faço o cadastro desse item
 
 Então devo ver este prato no meu dashboard
      Wait Until Element Contains              class:product-list         ${produto['nome']}
+
+###Novo prato Teste
+Dado que tenho um novo prato
+     Wait Until Element is Visible            class:btn-add       5  
+     Click Element                            class:btn-add
+     
+Quando faço o cadastro desse novo item
+     [Arguments]   ${fricasse}      ${frango}      ${15.90}
+
+     Input Text                               id:name                   ${fricasse}
+     Input Text                               id:plate                  ${frango} 
+     Input Text                               id:price                  ${15.90}
+     
+     Click Element                            class:btn-cadastrar
+
+Então devo ver este novo prato no meu dashboard
+      Wait Until Element Contains              class:product-list        ${fricasse}

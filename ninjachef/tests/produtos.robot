@@ -14,7 +14,13 @@ Test Teardown        Close Session
 &{Strogonoff}=      nome=Strogonoff     tipo=Carnes     preco=19.00
 
 ***Test Cases***
-Novo pratos
+Novo prato
     Dado que "${Strogonoff}" é um dos meus pratos
     Quando faço o cadastro desse item
     Então devo ver este prato no meu dashboard
+
+Novo prato Teste
+    Dado que tenho um novo prato
+    Quando faço o cadastro desse novo item
+    ...     Fricasse        Frango      15.90
+    Então devo ver este novo prato no meu dashboard
