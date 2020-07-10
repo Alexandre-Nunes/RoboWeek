@@ -9,7 +9,7 @@ Dado que acesso a página principal
      Go To           http://ninjachef-qaninja-io.umbler.net/
  
 Quando submeto o meu e-mail “${email}”
-     Input Text                               class:dashboard         ${email}   
+     Input Text                               id:email        ${email}   
      Click Element                            css:button[type=submit]      
    
 Entao devo ser autenticado com sucesso
