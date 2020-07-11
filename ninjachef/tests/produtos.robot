@@ -6,12 +6,13 @@ Documentation       Cadastro de produtos/pratos
 
 Resource             ../resources/base.robot
 
-Test Setup           Login Session        alexandre@gmail.com
-Test Teardown        Close Session
+Suite Setup          Login Session        testealexandre@gmail.com
+Suite Teardown       Close Session
+Test Teardown        Depois do Teste
 
 ***Variables***
 ### Variavel dicionario
-&{Strogonoff}=      nome=Strogonoff     tipo=Carnes     preco=19.00
+&{Strogonoff}=      img=strogonoff.jpeg       nome=Strogonoff     tipo=Carnes     preco=19.00
 
 ***Test Cases***
 Novo prato
@@ -19,8 +20,3 @@ Novo prato
     Quando faço o cadastro desse item
     Então devo ver este prato no meu dashboard
 
-Novo prato Teste
-    Dado que tenho um novo prato
-    Quando faço o cadastro desse novo item
-    ...     Fricasse        Frango      15.90
-    Então devo ver este novo prato no meu dashboard

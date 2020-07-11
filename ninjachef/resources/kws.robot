@@ -4,52 +4,38 @@ Documentation       Aqui teremos todas as palavras chaves de automação de comp
 ***Keywords***
 
 ###cadastro_usuario
-
 Dado que acesso a página principal
-     Go To           http://ninjachef-qaninja-io.umbler.net/
+     Go To                                    ${base_url} 
  
 Quando submeto o meu e-mail “${email}”
-     Input Text                               id:email        ${email}   
-     Click Element                            css:button[type=submit]      
+     Input Text                               ${INPUT_EMAIL}              ${email}   
+     Click Element                            ${BTN_QUERO_COZINHAR}      
    
 Entao devo ser autenticado com sucesso
-     Wait Until Page Contains Element         class:dashboard 
-     Page Should Contain Element              class:dashboard
+     Wait Until Page Contains Element         ${DIV_DASHBOARD} 
+     Page Should Contain Element              ${DIV_DASHBOARD} 
 
 Entao devo ver a mensagem "${expect_message}"
-    Wait Until Element Contains              class:alert               ${expect_message} 
+    Wait Until Element Contains               ${DIV_ALERT}                  ${expect_message} 
 
 ###produtos
-
 Dado que "${produto}" é um dos meus pratos
      Set Test Variable        ${produto}
 
 Quando faço o cadastro desse item
-     Wait Until Element is Visible            class:btn-add       5  
-     Click Element                            class:btn-add
+     Wait Until Element is Visible            ${BTN_ADD_PRATO}       5  
+     Click Element                            ${BTN_ADD_PRATO}
 
-     Input Text                               id:name                   ${produto['nome']}
-     Input Text                               id:plate                  ${produto['tipo']}
-     Input Text                               id:price                  ${produto['preco']}
+     Choose File                              ${UPLOAD_FILE}                  ${EXECDIR}/resources/images/${produto['img']}
+
+     Input Text                               ${INPUT_NOME}                   ${produto['nome']}
+     Input Text                               ${INPUT_TIPO}                   ${produto['tipo']}
+     Input Text                               ${INPUT_PRECO}                  ${produto['preco']}
      
-     Click Element                            class:btn-cadastrar
+     Click Element                            ${BTN_CADASTRAR} 
 
 Então devo ver este prato no meu dashboard
-     Wait Until Element Contains              class:product-list         ${produto['nome']}
+     Wait Until Element Contains              ${CLASS_LISTA}                   ${produto['nome']}
 
-###Novo prato Teste
-Dado que tenho um novo prato
-     Wait Until Element is Visible            class:btn-add       5  
-     Click Element                            class:btn-add
-     
-Quando faço o cadastro desse novo item
-     [Arguments]   ${fricasse}      ${frango}      ${15.90}
 
-     Input Text                               id:name                   ${fricasse}
-     Input Text                               id:plate                  ${frango} 
-     Input Text                               id:price                  ${15.90}
-     
-     Click Element                            class:btn-cadastrar
 
-Então devo ver este novo prato no meu dashboard
-      Wait Until Element Contains              class:product-list        ${fricasse}
