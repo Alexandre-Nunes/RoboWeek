@@ -23,17 +23,17 @@ Novo prato de Strogonoff
     Quando faço o cadastro desse item
     Então devo ver este prato no meu dashboard
 
-Novo prato de Strogonoff
+Novo prato de Fricasse
     Dado que "${Fricasse}" é um dos meus pratos
     Quando faço o cadastro desse item
     Então devo ver este prato no meu dashboard
 
-Novo prato de Strogonoff
+Novo prato de Lasanha
     Dado que "${Lasanha}" é um dos meus pratos
     Quando faço o cadastro desse item
     Então devo ver este prato no meu dashboard
 
-Novo prato de Strogonoff
+Novo prato de Churrasco
     Dado que "${Churrasco}" é um dos meus pratos
     Quando faço o cadastro desse item
     Então devo ver este prato no meu dashboard
